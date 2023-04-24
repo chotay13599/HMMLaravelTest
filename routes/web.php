@@ -26,7 +26,11 @@ Route::get('/studentRegister',function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/registerForm', FEStudentRegisterController::class);
+
+Route::group(['prefix'=> 'client'],function(){
+    Route::resource('/registerForm', FEStudentRegisterController::class);
+    
+});
 
 Route::group(['prefix' => 'admin','namespace' => 'App\Http\Controllers','middleware' => 'auth'],function(){
     Route::resource('programs',ProgramController::class);

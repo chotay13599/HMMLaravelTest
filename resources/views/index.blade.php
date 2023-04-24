@@ -11,7 +11,7 @@
     <title>Registraion Form</title>
   </head>
   <body>
-    <form action="{{route('registerForm.store')}}" class="form"  method="post">
+    <form action="{{route('registerForm.store')}}" class="form"  method="post" enctype="mu">
       @csrf
       <h1 class="text-center">Registration Form</h1>
       <!-- Progress bar -->
@@ -109,11 +109,15 @@
             </div>
 
             <div class="col-3">
+              <?php
+              $countries=["mandalay","yangon","nay pyi daw","Bago"]
+              ?>
               <label for="country" class="form-label">Country</label>
               <select name="country" id="" class="form-select">
                 <option value="0" selected>Choose Country</option>
-                <option value="1">Mandalay</option>
-                <option value="2">Yangon</option>
+                @foreach ($countries as $country)
+                    <option value="{{$country}}">{{$country}}</option>
+                @endforeach
               </select>
             </div>
           </div>
@@ -422,11 +426,11 @@
           </div>
          </div>
 
-         <div class="form-group mb-3">
-          
+         <div class="row mb-3">
+            <div class="col-12">
               <label for="" class="form-label">Description</label>
-              <Textarea name="description"></Textarea>
-          
+              <Textarea name="description" class="form-control" style="height: 100px"></Textarea>
+            </div> 
          </div>
         <div class="btns-group">
           <a href="#" class="btn btn-prev">Previous</a>

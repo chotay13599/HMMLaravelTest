@@ -53,6 +53,14 @@ class FEStudentRegisterController extends Controller
     {
         //
         $data = $request->except('_token');
+        // $file=$request->file('nrc_img');
+
+        // $name=$request->file('nrc_img')->getClientOriginalName();
+        // $new_name=time().$name;
+
+        // $destinationPath=public_path().'/img';
+        // $file->move($destinationPath,$new_name);
+
         DB::table('student_registers')->insert($data);
         return redirect()->route('registerForm.index');
         

@@ -40,7 +40,7 @@
                         <td>{{$student->program->title }}</td>
                         <td class="d-flex justify-content-center">
                             <a href="{{route('register_student.show', $student->id)}}" class="btn btn-warning me-2">View</a>
-                            <form action="" method="post">
+                            <form action="{{route('register_student.destroy',$student->id)}}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger" type="submit">Delete</button>

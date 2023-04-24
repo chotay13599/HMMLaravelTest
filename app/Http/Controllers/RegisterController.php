@@ -89,6 +89,6 @@ class RegisterController extends Controller
     {
         //
         $info->delete();
-        return redirect()->route('student_register.index');
+        return redirect()->route('register_student.index');
     }
 }
